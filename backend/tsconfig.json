@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                       // Gunakan ES6 atau lebih tinggi
+    "module": "commonjs",                 // Cocok untuk backend Node.js
+    "outDir": "./dist",                   // Output hasil build
+    "rootDir": "./src",                   // Folder sumber TypeScript
+    "strict": true,                       // Aktifkan pengecekan ketat
+    "esModuleInterop": true,              // Untuk impor express dengan cara modern
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
+
