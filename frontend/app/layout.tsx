@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
 import { Providers } from "@/provider";
+import RootLayoutNavbar from "@/components/RootLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <RootLayoutNavbar>{children}</RootLayoutNavbar>
+        </Providers>
       </body>
     </html>
   );

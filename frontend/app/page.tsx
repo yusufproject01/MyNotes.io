@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { axiosInstance } from "../api/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 
@@ -37,7 +38,7 @@ export default function Home() {
   });
 
   return (
-    <main className="flex flex-col w-full h-auto items-center justify-center">
+    <main className="flex flex-col w-full h-auto items-center justify-center pt-20">
       <section className="flex flex-col w-full h-auto my-6 gap-10 justify-center items-center">
         {isLoading ? (
           <h1>Loading...</h1>
@@ -45,13 +46,18 @@ export default function Home() {
           userData?.map((note: Note) => (
             <div
               key={note.id}
-              className="max-w-2xl w-full h-96 border border-slate-400 rounded-md flex flex-col px-4 py-2"
+              className="max-w-xl w-full h-40 border border-slate-400 rounded-md flex flex-col justify-center px-4 py-2"
             >
-              <h1 className="text-xl font-semibold text-slate-600">
-                Dibuat oleh: {note.user.name}
-              </h1>
-              <h2 className="text-2xl font-bold">{note.title}</h2>
-              <p className="text-lg text-justify">{note.content}</p>
+              <Link
+                href={`/prifile/${note.id}`}
+                className="text-xl font-semibold text-slate-600 capitalize"
+              >
+                {note.user.name}
+              </Link>
+              <div className="w-full h-auto py-2 border-y border-slate-400">
+                <h2 className="text-2xl font-bold text-center">{note.title}</h2>
+                <p className="text-sm text-justify">{note.content}</p>
+              </div>
             </div>
           ))
         )}
